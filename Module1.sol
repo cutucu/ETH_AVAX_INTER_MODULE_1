@@ -1,11 +1,10 @@
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-// Author: Sakshi
+// Author: Sakhi
 
-contract ShoppingTokens {
-    string public tokenName = "Shopingtokens";
+contract GameToken {
+    string public tokenName = "GameToken";
     mapping (address => uint256) public tokenBalances;
     uint256 public totalTokens;
     address public tokenOwner;
@@ -19,7 +18,7 @@ contract ShoppingTokens {
         tokenOwner = msg.sender;
     }
 
-    function rechargeShoppingTokens(address _address, uint256 _amount) public onlyTokenOwner {
+    function rechargeTokens(address _address, uint256 _amount) public onlyTokenOwner {
         uint256 oldTotal = totalTokens;
         tokenBalances[_address] += _amount;
         totalTokens += _amount;
@@ -53,4 +52,3 @@ contract ShoppingTokens {
         tokenOwner = _newOwner;
     }
 }
-
